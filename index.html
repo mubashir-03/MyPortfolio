@@ -1,6 +1,3 @@
-
-<!-- Created by Mubashir Khan -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,12 +19,14 @@
             background-color: #f5f5f5;
             min-height: 100vh;
             padding: 10px;
-            overflow: hidden;
+            overflow-x: hidden;
         }
        
         .portfolio-container {
             max-width: 500px;
-            height: 97vh;
+            width: 100%;
+            min-height: 95vh;
+            height: auto;
             margin: 0 auto;
             background: #fff;
             border-radius: 25px;
@@ -42,6 +41,7 @@
             flex: 1;
             overflow-y: auto;
             position: relative;
+            -webkit-overflow-scrolling: touch;
         }
        
         .hero-section {
@@ -102,6 +102,7 @@
             justify-content: center;
             gap: 15px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
        
         .btn {
@@ -113,6 +114,7 @@
             cursor: pointer;
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            min-width: 140px;
         }
        
         .btn-primary {
@@ -196,6 +198,8 @@
             font-size: 10px;
             text-decoration: none;
             transition: all 0.3s ease;
+            flex: 1;
+            max-width: 20%;
         }
        
         .nav-icon {
@@ -281,10 +285,12 @@
             justify-content: center;
             color: #0066ff;
             font-size: 18px;
+            flex-shrink: 0;
         }
        
         .contact-text {
             flex: 1;
+            min-width: 0;
         }
        
         .contact-label {
@@ -297,6 +303,7 @@
             font-size: 14px;
             font-weight: 500;
             color: #333;
+            word-break: break-all;
         }
        
         .contact-value a {
@@ -309,6 +316,7 @@
             justify-content: center;
             gap: 15px;
             margin-top: 20px;
+            flex-wrap: wrap;
         }
        
         .social-link {
@@ -416,6 +424,8 @@
             border-radius: 15px;
             margin: 15px 0;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            max-height: 300px;
+            object-fit: cover;
         }
        
         /* Section styles */
@@ -466,6 +476,7 @@
             font-size: 14px;
             transition: all 0.3s ease;
             background-color: #f9f9f9;
+            width: 100%;
         }
        
         .form-group input:focus,
@@ -508,6 +519,66 @@
             text-align: center;
             margin-top: 15px;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            .portfolio-container {
+                height: 100vh;
+                border-radius: 0;
+            }
+            
+            .content-section {
+                padding: 70px 15px 20px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .btn {
+                min-width: 120px;
+                padding: 10px 15px;
+            }
+            
+            .profile-overlay {
+                width: 90px;
+                height: 90px;
+                top: 130px;
+            }
+            
+            .nav-icon {
+                font-size: 18px;
+            }
+            
+            .contact-item {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .contact-icon {
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .button-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 200px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
     </style>
 </head>
 <body>
@@ -523,7 +594,7 @@
             </section>
            
             <div class="profile-overlay" id="mainProfile">
-                <img src=" https://i.ibb.co/1W9zvJZ/1754121536926.png" alt="Profile photo" class="profile-image">
+                <img src="https://i.ibb.co/1W9zvJZ/1754121536926.png" alt="Profile photo" class="profile-image">
             </div>
            
             <!-- Home Section -->
@@ -606,7 +677,7 @@
                    
                     <div class="form-group">
                         <label for="phone">Phone Number</label>
-                        <input type="number" id="phone" name="phone" required placeholder="+92 300 1234567">
+                        <input type="tel" id="phone" name="phone" required placeholder="+92 300 1234567">
                     </div>
                    
                     <div class="form-group">
@@ -618,11 +689,11 @@
                         <label for="service">Select a Project, Needed</label>
                         <select id="service" name="service" required>
                             <option value="" disabled selected>Select a Project/service</option>
-                            <option value="Shop website">Shop Website </option>
+                            <option value="Shop website">Shop Website</option>
                             <option value="school website">School Website</option>
                             <option value="mobile App Design">Mobile App Design</option>
-                            <option value="portfolio website">Portfolio Website </option>
-                            <option value="landing page">Landing Page </option>
+                            <option value="portfolio website">Portfolio Website</option>
+                            <option value="landing page">Landing Page</option>
                             <option value="Other">Other (specify in message)</option>
                         </select>
                     </div>
@@ -632,36 +703,35 @@
                         <select id="Categarey" name="Categarey" required>
                             <option value="" disabled selected>Select Category</option>
                             <option value="basic">Basic (1 Page 30$...)</option>
-                            <option value="advance">Advance  (1 Page 60$...)</option>
+                            <option value="advance">Advance (1 Page 60$...)</option>
                             <option value="premium">Premium (1 Page 90$...)</option>
-                          
                         </select>
+                    </div>
                    
                     <div class="form-group">
                         <label for="quantity">Estimated Pages/Components</label>
                        
                         <select id="quantity" name="quantity" required>
-                            <option value="" disabled selected>Select Estimated Pages/Components </option>
-                            <option value="1">1 Page <li>, Delevery time: 1-2 days</li></option>
-                            <option value="2">2 Page<li>, Delevery time: 2-3 days</li></option>
-                            <option value="3">3 Page<li>, Delevery time: 2-3 days</li></option>
-                            <option value="4">4 Page<li>, Delevery time: 3-4 days</li></option>
-                            <option value="5">5 Page<li>, Delevery time: 3-4 days</li></option>
-                            <option value="6">6 Page<li>, Delevery time: 4-5 days</li</option>
-                            <option value="7">7 Page<li>, Delevery time: 5-6 days</li</option>
-                            <option value="8">8 Page<li>, Delevery time: 5-6 days</li</option>
-                            <option value="9">9 Page<li>, Delevery time: 6-7 days</li</option>
-                            <option value="10">10 Page<li>, Delevery time: 7-8 days</li</option>
-                            <option value="11">11 Page<li>, Delevery time: 7-8 days</li</option>
-                            <option value="12">12 Page<li>, Delevery time: 8-9 days</li</option>
+                            <option value="" disabled selected>Select Estimated Pages/Components</option>
+                            <option value="1">1 Page (Delivery time: 1-2 days)</option>
+                            <option value="2">2 Page (Delivery time: 2-3 days)</option>
+                            <option value="3">3 Page (Delivery time: 2-3 days)</option>
+                            <option value="4">4 Page (Delivery time: 3-4 days)</option>
+                            <option value="5">5 Page (Delivery time: 3-4 days)</option>
+                            <option value="6">6 Page (Delivery time: 4-5 days)</option>
+                            <option value="7">7 Page (Delivery time: 5-6 days)</option>
+                            <option value="8">8 Page (Delivery time: 5-6 days)</option>
+                            <option value="9">9 Page (Delivery time: 6-7 days)</option>
+                            <option value="10">10 Page (Delivery time: 7-8 days)</option>
+                            <option value="11">11 Page (Delivery time: 7-8 days)</option>
+                            <option value="12">12 Page (Delivery time: 8-9 days)</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="budget">Your Budget For Your Selected Project</label>
                         
-                        <select  id="budget" name="budget">
-                        <option value="" disabled selected>0$</option>
-                          
+                        <select id="budget" name="budget">
+                            <option value="" disabled selected>0$</option>
                         </select>
                     </div>
                    
@@ -704,7 +774,7 @@
                         <div class="contact-text">
                             <div class="contact-label">WhatsApp</div>
                             <div class="contact-value">
-                                <a href="https://wa.me/+92 3460563827" target="_blank">Chat on WhatsApp</a>
+                                <a href="https://wa.me/923460563827" target="_blank">Chat on WhatsApp</a>
                             </div>
                         </div>
                     </div>
@@ -850,13 +920,15 @@
         document.getElementById('downloadCV').addEventListener('click', function() {
             // Replace with actual CV download functionality
             alert('Downloading CV...');
+            // In a real implementation, you would link to your CV file
+            // window.open('path-to-your-cv.pdf', '_blank');
         });
        
         // Initialize - show home section by default
-        document.getElementById('homeSection').classList.add('active');
-
-        // Auto-set budget based on Estimated Pages/Components
         document.addEventListener('DOMContentLoaded', function() {
+            showSection('homeSection');
+            
+            // Auto-set budget based on Estimated Pages/Components
             const quantityInput = document.getElementById('quantity');
             const categoryInput = document.getElementById('Categarey');
             const budgetSelect = document.getElementById('budget');
